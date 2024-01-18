@@ -55,8 +55,11 @@ On souhaite créer une application qui permet de gérer des comptes bancaires. c
 En Spring Data JPA, il existe deux stratégies de chargement des relations : eager et lazy.
 
 - **Eager** : tous les éléments liés sont chargés dès que l'objet est chargé.
+  
   ![Eager and Lazy Loading](captures/eager_bankAcc.png)
+  
 - **Lazy** : les éléments liés ne sont chargés que lorsqu'ils sont nécessaires. La stratégie de chargement par défaut est lazy.
+  
   ![Eager and Lazy Loading](captures/lazy.png)
 
 ## Stratégies de Mapping Héritage
