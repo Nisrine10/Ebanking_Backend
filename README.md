@@ -107,7 +107,7 @@ Explications des Annotations
 
 `@Repository` : Annotation utilisée pour indiquer que cette classe est un composant de persistance (DAO).
 
-# Méthodes du Contrôleur
+### Méthodes du Contrôleur
 
 `getBankAccount` : Obtient les détails d'un compte bancaire par son identifiant.
 
@@ -127,7 +127,7 @@ Explications des Annotations
 
 Ce contrôleur REST (CustomerRestController) offre des points d'accès pour gérer les clients dans le système bancaire.
 
-# Méthodes du Contrôleur
+### Méthodes du Contrôleur
 
 - `customers` : Renvoie une liste de tous les clients.
 - `searchCustomers` : Renvoie une liste de clients en fonction d'un mot-clé fourni.
@@ -185,7 +185,7 @@ L'authentification de base (Basic) requiert l'inclusion des informations d'ident
 ### Utilisation de l'outil HTTP Client
 <img src="captures/http_client_outil.png">
 
----
+
 
 ## Consultation des Clients
 
