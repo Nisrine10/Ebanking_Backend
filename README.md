@@ -91,9 +91,10 @@ En Spring Data JPA, il existe trois stratégies de mapping héritage :
   ![Inheritance Mapping Strategies](captures/joinDb2.png)
   ![Inheritance Mapping Strategies](captures/joinDb4.png)
 
-## BankAccountRestAPI
+# BankAccountRestAPI
 
-Explications des Annotations
+**Explications des Annotations:**
+
 `@RestController` : Indique que cette classe est un contrôleur REST. Les méthodes de cette classe renvoient directement des données au format JSON.
 
 `@CrossOrigin("*")` : Autorise les requêtes provenant de toutes les origines. Utile pour permettre l'accès aux services depuis différents domaines.
@@ -110,7 +111,7 @@ Explications des Annotations
 
 `@Repository` : Annotation utilisée pour indiquer que cette classe est un composant de persistance (DAO).
 
-# Méthodes du Contrôleur
+## Méthodes du Contrôleur
 
 `getBankAccount` : Obtient les détails d'un compte bancaire par son identifiant.
 
@@ -126,9 +127,9 @@ Explications des Annotations
 
 `transfer` : Effectue un transfert entre deux comptes bancaires.
 
-## CustomerRestController
+# CustomerRestController
 
-# Méthodes du Contrôleur
+## Méthodes du Contrôleur
 
 - `customers` : Renvoie une liste de tous les clients.
 - `searchCustomers` : Renvoie une liste de clients en fonction d'un mot-clé fourni.
