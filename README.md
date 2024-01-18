@@ -157,7 +157,7 @@ Swagger UI est une interface utilisateur interactive qui permet de visualiser et
 
 - **Pagination pour les operations**
   ![Couch Service](captures/nombrePageDansPageOperations2.png)
----
+
 ## Sécurisation de l'Application avec un Système d'Authentification basé sur Spring Security et JSON Web Token
 
 La sécurisation de l'application bancaire a été mise en œuvre en instaurant un système d'authentification basé sur
@@ -173,7 +173,7 @@ en tant que serveur de ressources OAuth 2.0. Elle permet à l'application de val
 de vérifier les autorisations et de sécuriser les ressources sensibles. Cela est particulièrement utile dans les 
 architectures où l'authentification et l'autorisation sont gérées par un serveur d'authentification externe, 
 et où l'application agit en tant que serveur de ressources sécurisé.
----
+
 # Interface de Connexion
 
 ## Authentification Basic avec Utilisation d'outils Http Client
@@ -218,4 +218,4 @@ Lorsque nous utilisons le terme "Bearer", cela indique que la personne détenant
 
 ## Conclusion
 
-Ce projet illustre l'utilisation de Spring Boot pour créer une application web RESTful avec un rendu HTML côté client, fonctionnant avec Maven. Il fournit également des exemples de l'utilisation de Couch DAO, Couch Service, Eager et Lazy, et des stratégies de mapping héritage.
+Ce projet illustre l'utilisation de Spring Boot pour créer une application web RESTful avec un rendu HTML côté client, fonctionnant avec Maven. Il fournit également des exemples de l'utilisation de Couch DAO, Couch Service, Eager et Lazy, et des stratégies de mapping héritage de plus de la securite de l'application.
