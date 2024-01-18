@@ -55,11 +55,8 @@ On souhaite créer une application qui permet de gérer des comptes bancaires. c
 En Spring Data JPA, il existe deux stratégies de chargement des relations : eager et lazy.
 
 - **Eager** : tous les éléments liés sont chargés dès que l'objet est chargé.
-  
   ![Eager and Lazy Loading](captures/eager_bankAcc.png)
-  
 - **Lazy** : les éléments liés ne sont chargés que lorsqu'ils sont nécessaires. La stratégie de chargement par défaut est lazy.
-  
   ![Eager and Lazy Loading](captures/lazy.png)
 
 ## Stratégies de Mapping Héritage
@@ -91,10 +88,9 @@ En Spring Data JPA, il existe trois stratégies de mapping héritage :
   ![Inheritance Mapping Strategies](captures/joinDb2.png)
   ![Inheritance Mapping Strategies](captures/joinDb4.png)
 
-# BankAccountRestAPI
+## BankAccountRestAPI
 
-**Explications des Annotations:**
-
+Explications des Annotations
 `@RestController` : Indique que cette classe est un contrôleur REST. Les méthodes de cette classe renvoient directement des données au format JSON.
 
 `@CrossOrigin("*")` : Autorise les requêtes provenant de toutes les origines. Utile pour permettre l'accès aux services depuis différents domaines.
@@ -111,7 +107,7 @@ En Spring Data JPA, il existe trois stratégies de mapping héritage :
 
 `@Repository` : Annotation utilisée pour indiquer que cette classe est un composant de persistance (DAO).
 
-## Méthodes du Contrôleur
+### Méthodes du Contrôleur
 
 `getBankAccount` : Obtient les détails d'un compte bancaire par son identifiant.
 
@@ -127,9 +123,11 @@ En Spring Data JPA, il existe trois stratégies de mapping héritage :
 
 `transfer` : Effectue un transfert entre deux comptes bancaires.
 
-# CustomerRestController
+## CustomerRestController
 
-## Méthodes du Contrôleur
+Ce contrôleur REST (CustomerRestController) offre des points d'accès pour gérer les clients dans le système bancaire.
+
+### Méthodes du Contrôleur
 
 - `customers` : Renvoie une liste de tous les clients.
 - `searchCustomers` : Renvoie une liste de clients en fonction d'un mot-clé fourni.
@@ -159,6 +157,64 @@ Swagger UI est une interface utilisateur interactive qui permet de visualiser et
 
 - **Pagination pour les operations**
   ![Couch Service](captures/nombrePageDansPageOperations2.png)
+---
+## Sécurisation de l'Application avec un Système d'Authentification basé sur Spring Security et JSON Web Token
+
+La sécurisation de l'application bancaire a été mise en œuvre en instaurant un système d'authentification basé sur
+Spring Security, avec l'utilisation de JSON Web Token (JWT). Cette approche renforce la sécurité de l'application 
+en garantissant un accès sécurisé aux fonctionnalités tout en empêchant les accès non autorisés.
+
+**Dépendance:**
+```spring-boot-starter-oauth2-resource-server```
+![Couch Service](captures/pring_oauth2.png)
+
+   La dépendance spring-boot-starter-oauth2-resource-server dans un projet Spring Boot configure l'application 
+en tant que serveur de ressources OAuth 2.0. Elle permet à l'application de valider les jetons d'accès OAuth 2.0, 
+de vérifier les autorisations et de sécuriser les ressources sensibles. Cela est particulièrement utile dans les 
+architectures où l'authentification et l'autorisation sont gérées par un serveur d'authentification externe, 
+et où l'application agit en tant que serveur de ressources sécurisé.
+---
+# Interface de Connexion
+
+## Authentification Basic avec Utilisation d'outils Http Client
+
+L'authentification de base (Basic) requiert l'inclusion des informations d'identification (nom d'utilisateur et mot de passe) dans l'en-tête d'autorisation de chaque requête, encodées en Base64.
+
+<img src="captures/login_apres.png">
+
+### Utilisation de l'outil HTTP Client
+<img src="captures/http_client_outil.png">
+
+---
+
+## Consultation des Clients
+
+Lors de l'utilisation de l'authentification de base, les requêtes peuvent être envoyées pour consulter les clients de la banque.
+
+![Consultation des Clients](captures/http_client_customer.jpg)
+
+
+
+## Consultation du Profil
+
+De même, l'authentification de base permet de consulter le profil d'un utilisateur.
+
+![Consultation du Profil](captures/http_client_profile.png)
+
+# JSON Web Token (JWT)
+
+Pour simplifier le processus d'authentification, nous allons migrer vers l'utilisation de JSON Web Tokens (JWT). Cette approche génère un token lors de l'authentification et utilise deux beans :
+
+- **Encoder Bean :** Signe et génère les tokens JWT.
+- **Decoder Bean :** Un filtre interceptant les requêtes, récupérant le JWT, vérifiant la signature et extrayant les informations du token.
+
+Cela simplifie l'authentification en utilisant des tokens signés pour transporter de manière sécurisée les informations d'identification.
+
+## Génération du JWT
+
+Avec JWT, plutôt que d'envoyer le nom d'utilisateur et le mot de passe à chaque requête, le token généré est inclus sous la forme d'un "Bearer".
+
+Lorsque nous utilisons le terme "Bearer", cela indique que la personne détenant le token (bearer) est authentifiée. Lorsque nous envoyons une requête avec un token JWT, l'en-tête Authorization inclut habituellement la mention "Bearer" suivie du token. Cela informe le serveur que le token est utilisé à des fins d'authentification.
 
 ## Conclusion
 
